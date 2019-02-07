@@ -13,6 +13,7 @@
 		F101ACB5220B9298004DCC45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F101ACB4220B9298004DCC45 /* Assets.xcassets */; };
 		F101ACB8220B9298004DCC45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F101ACB6220B9298004DCC45 /* LaunchScreen.storyboard */; };
 		F101ACC0220B988A004DCC45 /* Hamburger_icon.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = F101ACBF220B988A004DCC45 /* Hamburger_icon.svg.png */; };
+		F101AF2B220CB0EC004DCC45 /* database.json in Resources */ = {isa = PBXBuildFile; fileRef = F101AF2A220CB0EC004DCC45 /* database.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F101ACB7220B9298004DCC45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F101ACB9220B9298004DCC45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F101ACBF220B988A004DCC45 /* Hamburger_icon.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hamburger_icon.svg.png; sourceTree = "<group>"; };
+		F101AF2A220CB0EC004DCC45 /* database.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = database.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				F101ACB6220B9298004DCC45 /* LaunchScreen.storyboard */,
 				F101ACB9220B9298004DCC45 /* Info.plist */,
 				F101ACBF220B988A004DCC45 /* Hamburger_icon.svg.png */,
+				F101AF2A220CB0EC004DCC45 /* database.json */,
 			);
 			path = FriendFinder;
 			sourceTree = "<group>";
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F101AF2B220CB0EC004DCC45 /* database.json in Resources */,
 				F101ACC0220B988A004DCC45 /* Hamburger_icon.svg.png in Resources */,
 				F101ACB8220B9298004DCC45 /* LaunchScreen.storyboard in Resources */,
 				F101ACB5220B9298004DCC45 /* Assets.xcassets in Resources */,
