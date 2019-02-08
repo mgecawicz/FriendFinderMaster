@@ -15,7 +15,6 @@
 		B09AD1F5220CDA09003BE06C /* TestJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AD1F4220CDA09003BE06C /* TestJSONTests.swift */; };
 		B09AD200220CDA09003BE06C /* TestJSONUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AD1FF220CDA09003BE06C /* TestJSONUITests.swift */; };
 		B09AD20E220CDAE2003BE06C /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AD20D220CDAE2003BE06C /* TableController.swift */; };
-		B09AD210220CED34003BE06C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B09AD20F220CED34003BE06C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +49,6 @@
 		B09AD1FF220CDA09003BE06C /* TestJSONUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestJSONUITests.swift; sourceTree = "<group>"; };
 		B09AD201220CDA09003BE06C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B09AD20D220CDAE2003BE06C /* TableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
-		B09AD20F220CED34003BE06C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +105,6 @@
 				B09AD1E6220CDA09003BE06C /* Assets.xcassets */,
 				B09AD1E8220CDA09003BE06C /* LaunchScreen.storyboard */,
 				B09AD20D220CDAE2003BE06C /* TableController.swift */,
-				B09AD20F220CED34003BE06C /* GoogleService-Info.plist */,
 				B09AD1EB220CDA09003BE06C /* Info.plist */,
 			);
 			path = TestJSON;
@@ -236,7 +233,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B09AD1EA220CDA09003BE06C /* LaunchScreen.storyboard in Resources */,
-				B09AD210220CED34003BE06C /* GoogleService-Info.plist in Resources */,
 				B09AD1E7220CDA09003BE06C /* Assets.xcassets in Resources */,
 				B09AD1E5220CDA05003BE06C /* Main.storyboard in Resources */,
 			);
@@ -441,13 +437,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GSU7M7YBER;
+				DEVELOPMENT_TEAM = XGB76C9KDD;
 				INFOPLIST_FILE = TestJSON/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.skaplan.TestJSON.TestJSON;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mgecawicz.JSONtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -459,13 +455,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GSU7M7YBER;
+				DEVELOPMENT_TEAM = XGB76C9KDD;
 				INFOPLIST_FILE = TestJSON/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.skaplan.TestJSON.TestJSON;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mgecawicz.JSONtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
