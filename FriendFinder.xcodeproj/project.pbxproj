@@ -13,7 +13,7 @@
 		F101ACB3220B9298004DCC45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F101ACB1220B9298004DCC45 /* Main.storyboard */; };
 		F101ACB5220B9298004DCC45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F101ACB4220B9298004DCC45 /* Assets.xcassets */; };
 		F101ACB8220B9298004DCC45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F101ACB6220B9298004DCC45 /* LaunchScreen.storyboard */; };
-		F101AF2B220CB0EC004DCC45 /* database.json in Resources */ = {isa = PBXBuildFile; fileRef = F101AF2A220CB0EC004DCC45 /* database.json */; };
+		F1513DD1220E361F00E92D52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1513DD0220E361F00E92D52 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		F101ACB4220B9298004DCC45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F101ACB7220B9298004DCC45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F101ACB9220B9298004DCC45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F101AF2A220CB0EC004DCC45 /* database.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = database.json; sourceTree = "<group>"; };
+		F1513DD0220E361F00E92D52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +48,6 @@
 				E3CA534AA56ACF670A50CD6A /* Pods-FriendFinder.debug.xcconfig */,
 				8BB46091D045369DD78D1824 /* Pods-FriendFinder.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -87,7 +86,7 @@
 				F101ACB4220B9298004DCC45 /* Assets.xcassets */,
 				F101ACB6220B9298004DCC45 /* LaunchScreen.storyboard */,
 				F101ACB9220B9298004DCC45 /* Info.plist */,
-				F101AF2A220CB0EC004DCC45 /* database.json */,
+				F1513DD0220E361F00E92D52 /* GoogleService-Info.plist */,
 			);
 			path = FriendFinder;
 			sourceTree = "<group>";
@@ -152,8 +151,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F101AF2B220CB0EC004DCC45 /* database.json in Resources */,
 				F101ACB8220B9298004DCC45 /* LaunchScreen.storyboard in Resources */,
+				F1513DD1220E361F00E92D52 /* GoogleService-Info.plist in Resources */,
 				F101ACB5220B9298004DCC45 /* Assets.xcassets in Resources */,
 				F101ACB3220B9298004DCC45 /* Main.storyboard in Resources */,
 			);
