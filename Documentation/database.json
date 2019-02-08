@@ -1,0 +1,134 @@
+{
+  "Categories" : {
+    "Art & Entertainment" : {
+      "Celebs & News" : {
+        "Hollywood" : {
+          "Movie Stars" : 1,
+          "TV Stars" : 0
+        },
+        "Performance" : {
+          "Circus" : 3,
+          "Dancers" : 2,
+          "Orchestra" : 0,
+          "Singers" : 1
+        },
+        "Theater" : {
+          "Broadway" : 0,
+          "Local" : 1
+        }
+      },
+      "Comics & Animation" : {
+        "Adults" : {
+          "Adult Swim" : 0,
+          "Comedy Central" : 1
+        },
+        "Japanese" : {
+          "Anime" : 0,
+          "Manga" : 1
+        },
+        "Kids" : {
+          "Cartoon Network" : 1,
+          "Disney" : 2,
+          "Nickelodeon" : 0
+        }
+      },
+      "Humor" : {
+        "Common" : {
+          "Dark Jokes" : 2,
+          "Light Jokes" : 1,
+          "Memes" : 0,
+          "Satire" : 3
+        },
+        "Performance" : {
+          "Sketch" : 0,
+          "Standup" : 1,
+          "Talkshows" : 2
+        }
+      },
+      "Movies" : {
+        "American" : {
+          "Action" : 2,
+          "Classics" : 1,
+          "Documentary" : 6,
+          "Horror" : 5,
+          "Humor" : 4,
+          "Muscial" : 7,
+          "Romance" : 3,
+          "Western" : 0
+        },
+        "Foreign" : {
+          "Indian" : 0
+        }
+      },
+      "Music & Video" : {
+        "American" : {
+          "Blues" : 6,
+          "Country" : 7,
+          "Indie" : 8,
+          "Instrumental" : 0,
+          "Jazz" : 5,
+          "Pop" : 2,
+          "Rap" : 4,
+          "Rock" : 3,
+          "Techno" : 1
+        },
+        "Foreign" : {
+          "Europop" : 2,
+          "J-Pop" : 1,
+          "K-Pop" : 0
+        }
+      },
+      "TV" : {
+        "American" : {
+          "Christmas" : 8,
+          "Educational" : 3,
+          "Kids Shows" : 0,
+          "Mystery" : 1,
+          "News" : 4,
+          "Reality" : 6,
+          "Romance" : 7,
+          "Sci-Fi" : 2,
+          "Sports" : 5
+        },
+        "Foreign" : {
+          "British" : 0,
+          "Japanese" : 1,
+          "Korean" : 2
+        }
+      }
+    },
+    "Earth & Environment" : {
+      "Agriculture & Horticulture" : {
+        "temp" : 1
+      },
+      "Microbes, Algae, & Fungi" : {
+        "temp" : 1
+      },
+      "Plants & Animals" : {
+        "temp" : 1
+      },
+      "temp" : 1
+    },
+    "Fashion & Design" : {
+      "temp" : 1
+    },
+    "Health & Fitness" : {
+      "temp" : 1
+    },
+    "History & Travel" : {
+      "temp" : 1
+    },
+    "Holidays & Events" : {
+      "temp" : 1
+    },
+    "Philosophy & Religion" : {
+      "temp" : 1
+    },
+    "Science & Technology" : {
+      "temp" : 1
+    },
+    "someid" : {
+      "name" : "Mike"
+    }
+  }
+}
