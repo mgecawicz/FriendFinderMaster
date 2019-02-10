@@ -23,9 +23,7 @@ class TableViewController: UITableViewController {
             // Get user value
             let value = snapshot.value as? [String : AnyObject]
             
-            print(value)
-            
-            self.populate_Table(value as NSString)
+            self.populate_Table(value!)
             // ...
         }) { (error) in
             print(error.localizedDescription)
@@ -58,10 +56,10 @@ class TableViewController: UITableViewController {
     }
     
     
-    func populate_Table(_ data: NSString) {
-        for i in 0 ..< data.count {
+    func populate_Table(_ data: Dictionary<String, Any>) {
+        for (name, value) in data {
             //TableData.append(key as! String)
-            TableData.append("Test")
+            TableData.append(name+": "+(value as! String))
         }
         
         
