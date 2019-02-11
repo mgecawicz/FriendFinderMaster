@@ -9,9 +9,17 @@
 import UIKit
 import FirebaseDatabase
 
+struct cellData {
+    var opened = Bool()
+    var title = String()
+    var sectionData = [String]()
+}
+
 class TableViewController: UITableViewController {
 
+    var tableViewData = [cellData]()
     var TableData:Array<String> = Array<String>() // Used for storing and reading JSON data
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,11 +28,8 @@ class TableViewController: UITableViewController {
         ref.child("someid/name").setValue("Joe")
         
         ref.child("Categories").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
             let value = snapshot.value as? [String : AnyObject]
-            
             self.populate_Table(value!)
-            // ...
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -36,40 +41,71 @@ class TableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return TableData.count
+        return tableViewData.count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = TableData[indexPath.row]
-        return cell
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableViewData[section].opened == true {
+            return tableViewData[section].sectionData.count + 1
+        } else {
+            return 1;
+        }
     }
+
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
+            cell.textLabel?.text = tableViewData[indexPath.section].title
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
+            cell.textLabel?.text = tableViewData[indexPath.section].sectionData[indexPath.row - 1] // +"\(indexPath.row)"
+            return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            if tableViewData[indexPath.section].opened == true {
+                tableViewData[indexPath.section].opened = false
+                let sections = IndexSet.init(integer: indexPath.section)
+                tableView.reloadSections(sections, with: .none)
+            } else {
+                tableViewData[indexPath.section].opened = true
+                let sections = IndexSet.init(integer: indexPath.section)
+                tableView.reloadSections(sections, with: .none)
+            }
+        }
+    }
+    
     
     
     func populate_Table(_ data: Dictionary<String, Any>) {
-        for (name, value) in data {
-            //TableData.append(key as! String)
-            TableData.append(name+": "+(value as! String))
+        for (cat, sub1) in data {
+            var subStuff = [String]()
+            let new = sub1 as! [String : AnyObject]
+            for (sub2, top1) in new {
+                subStuff.append(sub2)
+            }
+            
+            tableViewData.append(cellData(opened: false, title: cat, sectionData: subStuff))
         }
-        
-        
+
         DispatchQueue.main.async(execute: {self.do_table_refresh()})
-        
+
     }
+    
     
     func do_table_refresh() {
         self.tableView.reloadData()
-        
     }
  
 
