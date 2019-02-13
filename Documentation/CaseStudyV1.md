@@ -10,6 +10,8 @@ Our goal is to design a project that will help connect nearby people with shared
 
 ### User Groups
 
+![An image of our possible target audiences](Images/target_audience.jpeg "Target Audience Ideation")
+
 ### Behavior
 
 ### User Goals
