@@ -19,13 +19,12 @@ class TableViewController: UITableViewController {
 
     var tableViewData = [cellData]()
     var TableData:Array<String> = Array<String>() // Used for storing and reading JSON data
+    var keyText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let ref = Database.database().reference()
-        
-        ref.child("someid/name").setValue("Joe")
         
         ref.child("Categories").observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? [String : AnyObject]
@@ -73,17 +72,26 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            if tableViewData[indexPath.section].opened == true {
-                tableViewData[indexPath.section].opened = false
-                let sections = IndexSet.init(integer: indexPath.section)
-                tableView.reloadSections(sections, with: .none)
-            } else {
-                tableViewData[indexPath.section].opened = true
-                let sections = IndexSet.init(integer: indexPath.section)
-                tableView.reloadSections(sections, with: .none)
-            }
-        }
+//        if indexPath.row == 0 {
+//            if tableViewData[indexPath.section].opened == true {
+//                tableViewData[indexPath.section].opened = false
+//                let sections = IndexSet.init(integer: indexPath.section)
+//                tableView.reloadSections(sections, with: .none)
+//            } else {
+//                tableViewData[indexPath.section].opened = true
+//                let sections = IndexSet.init(integer: indexPath.section)
+//                tableView.reloadSections(sections, with: .none)
+//            }
+//        }
+        
+        self.keyText = tableViewData[indexPath.section].title
+        //performSegue(withIdentifier: "key", sender: self)
+        return
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! DetailView
+        vc.finalKey = self.keyText
     }
     
     
