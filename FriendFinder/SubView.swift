@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  SubView.swift
 //  FriendFinder
 //
 //  Created by Stephen Kaplan on 12/2/19.
@@ -9,9 +9,11 @@
 import UIKit
 import FirebaseDatabase
 
-class DetailView: UITableViewController {
+class SubView: UITableViewController {
     
-    var finalKey = ""
+    var finalCat = ""
+    var selectedSub = ""
+    var mainColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
 
     var tableViewData = [cellData]()
     var TableData:Array<String> = Array<String>() // Used for storing and reading JSON data
@@ -21,7 +23,14 @@ class DetailView: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Categories/"+finalKey)
+        print("Categories/"+finalCat)
+        
+        ref.child("Categories/"+finalCat).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? [String : AnyObject]
+            self.populate_Table(value!)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,12 +40,7 @@ class DetailView: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        ref.child("Categories/"+finalKey).observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? [String : AnyObject]
-            self.populate_Table(value!)
-        }) { (error) in
-            print(error.localizedDescription)
-        }
+        // Stuff
     }
     
     
@@ -48,29 +52,20 @@ class DetailView: UITableViewController {
     }
     
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableViewData[section].opened == true {
-            return tableViewData[section].sectionData.count + 1
-        } else {
-            return 1;
-        }
-    }
-    
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
-            cell.textLabel?.text = tableViewData[indexPath.section].title
-            return cell
-        } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
-            cell.textLabel?.text = tableViewData[indexPath.section].sectionData[indexPath.row - 1] // +"\(indexPath.row)"
-            return cell
-        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
+        cell.textLabel?.text = tableViewData[indexPath.section].title
+        cell.textLabel?.textColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1.0)
+        //let c = Double(indexPath.section)*15.0;
+        cell.backgroundColor = mainColor;
+        return cell
     }
     
-    var keyText = ""
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1;
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //        if indexPath.row == 0 {
         //            if tableViewData[indexPath.section].opened == true {
@@ -86,6 +81,18 @@ class DetailView: UITableViewController {
         
 //        self.keyText = tableViewData[indexPath.section].title
 //        performSegue(withIdentifier: "key", sender: self)
+        self.selectedSub = tableViewData[indexPath.section].title
+        performSegue(withIdentifier: "sub", sender: self)
+        return
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "sub"){
+            let vc = segue.destination as! TopicView
+            vc.finalCat = finalCat
+            vc.finalSub = selectedSub
+            vc.mainColor = mainColor
+        }
     }
 //
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -96,14 +103,11 @@ class DetailView: UITableViewController {
     
     
     func populate_Table(_ data: Dictionary<String, Any>) {
-        for (cat, sub1) in data {
+        let data = Array(data.keys).sorted()
+        
+        for cat in data {
             var subStuff = [String]()
-            let new = sub1 as! [String : AnyObject]
-            for (sub2, top1) in new {
-                subStuff.append(sub2)
-            }
-            
-            tableViewData.append(cellData(opened: false, title: cat, sectionData: subStuff))
+            tableViewData.append(cellData(opened: false, title: cat))
         }
         
         DispatchQueue.main.async(execute: {self.do_table_refresh()})

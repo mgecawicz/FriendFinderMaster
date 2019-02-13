@@ -12,17 +12,19 @@ import FirebaseDatabase
 struct cellData {
     var opened = Bool()
     var title = String()
-    var sectionData = [String]()
 }
 
 class TableViewController: UITableViewController {
 
     var tableViewData = [cellData]()
     var TableData:Array<String> = Array<String>() // Used for storing and reading JSON data
-    var keyText = ""
+    var selectedCat = ""
+    var selectedColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //self.view.backgroundColor = UIColor(red: 35/255, green: 35/255, blue: 45/255, alpha: 1.0)
         
         let ref = Database.database().reference()
         
@@ -39,7 +41,6 @@ class TableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
     
     // MARK: - Table view data source
 
@@ -49,26 +50,18 @@ class TableViewController: UITableViewController {
     }
 
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableViewData[section].opened == true {
-            return tableViewData[section].sectionData.count + 1
-        } else {
-            return 1;
-        }
-    }
-
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
-            cell.textLabel?.text = tableViewData[indexPath.section].title
-            return cell
-        } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
-            cell.textLabel?.text = tableViewData[indexPath.section].sectionData[indexPath.row - 1] // +"\(indexPath.row)"
-            return cell
-        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {return UITableViewCell()}
+        cell.textLabel?.text = tableViewData[indexPath.section].title
+        cell.textLabel?.textColor = UIColor(red: 200/255, green: 200/255, blue: 200/255, alpha: 1.0)
+        let c = Double(indexPath.section)*15.0;
+        cell.backgroundColor = UIColor(red: CGFloat(c/255.0), green: 0/255, blue: 150/255, alpha: 1.0);
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1;
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -84,27 +77,30 @@ class TableViewController: UITableViewController {
 //            }
 //        }
         
-        self.keyText = tableViewData[indexPath.section].title
-        //performSegue(withIdentifier: "key", sender: self)
+        self.selectedCat = tableViewData[indexPath.section].title
+        
+        let c = Double(indexPath.section)*15.0;
+        selectedColor = UIColor(red: CGFloat(c/255.0), green: 0/255, blue: 150/255, alpha: 1.0);
+
+        performSegue(withIdentifier: "cat", sender: self)
         return
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! DetailView
-        vc.finalKey = self.keyText
+        if (segue.identifier == "cat"){
+            let vc = segue.destination as! SubView
+            vc.finalCat = self.selectedCat
+            vc.mainColor = selectedColor
+        }
     }
     
     
     
     func populate_Table(_ data: Dictionary<String, Any>) {
-        for (cat, sub1) in data {
-            var subStuff = [String]()
-            let new = sub1 as! [String : AnyObject]
-            for (sub2, top1) in new {
-                subStuff.append(sub2)
-            }
-            
-            tableViewData.append(cellData(opened: false, title: cat, sectionData: subStuff))
+        let data = Array(data.keys).sorted()
+        
+        for cat in data {
+            tableViewData.append(cellData(opened: false, title: cat))
         }
 
         DispatchQueue.main.async(execute: {self.do_table_refresh()})
