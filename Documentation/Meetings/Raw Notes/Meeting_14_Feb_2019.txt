@@ -1,0 +1,95 @@
+Thursday, February 14th, 2019 Meeting Notes
+
+
+Developing personas and target audience
+
+
+What Carsyn thinks friend finder is:
+* Not sure if it’s an article of clothing, is it a wearable? (Yes)
+* Gives you indication of connecting between you, yourself, and someone else
+* Works by proximity, once you get in certain range of someone who shares a connection with you indicated will let you know
+* Won’t tell you exactly what the connection is (Talking strictly about the device)
+* Mike: could set your light patterns
+* App is the individualistic part of the whole idea, part you establish yourself
+* Your job is to indicate what about yourself you want the device to match people for
+* Personalizable
+* Weighted system good
+   * Less abrasive indication for low quality connections
+
+
+* Karen
+
+
+- Option to build own database, friend finder developer app
+- Looking for people with specific skills, we are not working on that now
+- Platform for expanding on
+- friend finder is a mechanism to indicate shared connections
+- Multiple case studies is more realistic
+        - There are so many uses, ex: Facebook. You don’t make a case study for the whole thing, instead you focus on one part of it
+- Variance of the dataset is the definition of the application
+- Need to be able to connect at a certain distance and pass data seamlessly without needing to pair the device
+        - GPS not extremely reliable (but is RF? maybe)
+
+
+- When multiple people match at the same time?
+        - Is the point to connect to one person or multiple people? Would it make more sense to only match two people in a group of many?
+        - “Multiple matching”
+        - Could just base it on strength of connection, have it very specific, person who is closest, randomize if same distance
+        - Do we want to establish a strong connection between two individuals, or increase the likelihood of finding a friend – meaning match to multiple people?
+        - Allow users to choose whether they want to connect to multiple people or just one
+                - Psychological reasons
+
+
+
+
+
+Case Study So Far
+
+
+# Designing Friend Finder: An Interest Matching App With a Wearable Interface - A UX Case Study
+
+
+## Problem
+There is no way to know if you share an interest with someone unless you talk to them. When people do talk to each other, there is no guarantee that they share interests, making for inefficient social exchanges with undesirable outcomes. It is difficult to find people who are open to talking with you as well as who you have a common interest with. 
+The opportunity to find connection is lost through no fault of people; it is left to the ambiguity of people. We as individuals do not know what people like.
+
+
+## Goals
+Our goal is to design a project that will help connect nearby people with shared interests. 
+Not to find just a connection, find a meaningful connection. You can make a “meh” connection with anyone. Can interact with anybody.
+
+
+## User Persona
+Three personas would rational
+### User Groups
+
+
+![An image of our possible target audiences](Images/target_audience.jpeg "Target Audience Ideation")
+
+
+### Behavior
+
+
+### User Goals
+
+
+### Constraints
+
+
+## Solution Space
+
+
+## Information Architecture
+
+
+## User Flow
+
+
+## Edge Cases
+
+
+## Prototype
+
+
+## Thanks for reading.
+Feedback is much appreciated.
